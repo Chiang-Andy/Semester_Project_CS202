@@ -62,7 +62,6 @@ The following are the processes to be implemented
         amplitude of the wave file
 
 ()Required Processors
-
     The challenge-level application includes all the processors from the basic level. 
     In addition, it must include the following processors:
     
