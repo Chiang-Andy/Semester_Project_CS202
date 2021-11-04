@@ -1,6 +1,7 @@
 # Semester_Project_CS202
 
 ()Program Flow
+
     Start: Present start menu
     If user selects quit, exit program
     Else
@@ -34,9 +35,11 @@ The data to be displayed in step (1):
 ()Required Processors
 The following are the processes to be implemented
 
-normalization
+    normalization
 
-    Algorithm: The largest sample value in the data is found, and then the data is scaled so that that value is the maximum possible value. This maximizes the amplitude of the final waveform.
+    Algorithm: The largest sample value in the data is found, and then 
+    the data is scaled so that that value is the maximum possible value.
+    This maximizes the amplitude of the final waveform.
 
     Example for floating-point data
 
@@ -46,22 +49,30 @@ normalization
 
         Scaled result: n_scaled = {0, 0.5,1,0,-0.75}
 
-echo
+    echo
 
-    Algorithm: Samples are copied, scaled, and added to later locations in the sample buffer to create an echo effect.
+        Algorithm: Samples are copied, scaled, 
+        and added to later locations in the
+        sample buffer to create an echo effect.
 
-gain adjustment
+    gain adjustment
 
-    Algorithm: Samples are multiplied by a scaling factor that raises or lowers the overall amplitude of the wave file
+        Algorithm: Samples are multiplied by a scaling
+        factor that raises or lowers the overall
+        amplitude of the wave file
 
 ()Required Processors
-The challenge-level application includes all the processors from the basic level. In addition, it must include the following processors:
 
-low-pass filter
-    Remove high frequency components from the signal
+    The challenge-level application includes all the processors from the basic level. 
+    In addition, it must include the following processors:
+    
+    low-pass filter
+        Remove high frequency components from the signal
 
-compression / limiting
-    The dynamic range of the signal is compressed using a non-linear map of input to output. This is commonly used to limit loud peaks in the sound, and gives an overall impression of higher volume.
+    compression / limiting
+        The dynamic range of the signal is compressed using a non-linear map of input to output. 
+        This is commonly used to limit loud peaks in the sound, and gives an      
+        overall impression of higher volume.
 
 
 
