@@ -32,10 +32,10 @@ bool Wav::readFile (const std::string &filename){
 				std::cout << (int)buffer8[i] << " ";
 			}*/
 		if(std::string {wavHeader.riff_header, 4} != "RIFF"){
-			throw std::runtime_error("Not RIFF Format");
+			return false;
 		}
 		if(std::string {wavHeader.wave_header, 4} != "WAVE"){
-			throw std::runtime_error("Not WAVE Format");
+			return false;
 		} 
 		else {
 			buffer16 = new short[wavHeader.data_bytes];
