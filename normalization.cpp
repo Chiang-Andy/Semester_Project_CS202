@@ -2,10 +2,20 @@
 #include <stdlib.h>
 #include "normalization.h"
 
+/**
+ * @brief Construct a new Normal:: Normal object
+ * 
+ */
 Normal::Normal() {
 
 }
 
+/**
+ * @brief 
+ * 
+ * @param buffer8 
+ * @param bufferSize 
+ */
 void Normal::processBuffer8(unsigned char* buffer8, int bufferSize) {
 	float factor;
 	char max = 1;
@@ -20,6 +30,12 @@ void Normal::processBuffer8(unsigned char* buffer8, int bufferSize) {
 	}
 }
 
+/**
+ * @brief 
+ * 
+ * @param buffer16 
+ * @param bufferSize 
+ */
 void Normal::processBuffer16(short* buffer16, int bufferSize) {
 	float factor;
 	short max = 1;
@@ -34,6 +50,10 @@ void Normal::processBuffer16(short* buffer16, int bufferSize) {
 	}
 }
 
+/**
+ * @brief Destroy the Normal:: Normal object
+ * 
+ */
 Normal::~Normal() {
 
 }

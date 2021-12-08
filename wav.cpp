@@ -11,6 +11,13 @@ Wav::~Wav() {
 // 1-8 bits: unsigned int
 // 9+ bits: signed int
 
+/**
+ * @brief 
+ * 
+ * @param filename 
+ * @return true 
+ * @return false 
+ */
 bool Wav::readFile (const std::string &filename){
 
 	std::ifstream file(filename, std::ios::binary | std::ios::in);
@@ -38,6 +45,10 @@ bool Wav::readFile (const std::string &filename){
 	}
 }
 
+/**
+ * @brief 
+ * 
+ */
 void Wav::printMetadata() {
 	std::cout << "Filename: " << name << std::endl;
 	std::cout << "Sample rate: " << wavHeader.sample_rate << std::endl;
@@ -56,12 +67,21 @@ void Wav::printMetadata() {
 	
 }
 
+/**
+ * @brief 
+ * 
+ * @param outFileName 
+ */
 void Wav::copyFile(const std::string &outFileName) {
 	std::ifstream inf(name, std::ios::binary | std::ios::out);
 	std::ofstream outf(outFileName, std::ios::binary | std::ios::out);
 	outf << inf.rdbuf();
 }
 
+/**
+ * @brief 
+ * 
+ */
 void Wav::writeFile() {
 	std::ofstream file(name, std::ios::binary | std::ios::out);
 	if(file.is_open())
@@ -82,22 +102,46 @@ void Wav::writeFile() {
 		}
 }
 
+/**
+ * @brief 
+ * 
+ * @return unsigned* 
+ */
 unsigned char* Wav::getBuffer8() {
 	return buffer8;
 }
 
+/**
+ * @brief 
+ * 
+ * @return short* 
+ */
 short* Wav::getBuffer16() {
 	return buffer16;
 }
 
+/**
+ * @brief 
+ * 
+ * @return int 
+ */
 int Wav::getBuffer8Size() const {
 	return wavHeader.data_bytes;
 }
 
+/**
+ * @brief 
+ * 
+ * @return int 
+ */
 int Wav::getBuffer16Size() const {
 	return wavHeader.data_bytes;
 }
 
+/**
+ * @brief 
+ * 
+ */
 void Wav::normal() {
 	Processor * p = new Normal();
 	if (wavHeader.num_channels == 1) {
@@ -106,6 +150,13 @@ void Wav::normal() {
 		p->processBuffer16(getBuffer16(), getBuffer16Size());
 	}
 }
+
+/**
+ * @brief 
+ * 
+ * @param factor 
+ * @param seconds 
+ */
 void Wav::echo(float factor, float seconds) {
 	Processor * p = new Echo(factor, seconds, wavHeader.sample_rate, wavHeader.num_channels);
 	if (wavHeader.num_channels == 1) {
@@ -114,6 +165,12 @@ void Wav::echo(float factor, float seconds) {
 		p->processBuffer16(getBuffer16(), getBuffer16Size());
 	}
 }
+
+/**
+ * @brief 
+ * 
+ * @param factor 
+ */
 void Wav::gain(float factor) {
 	Processor * p = new Gain(factor);
 	if (wavHeader.num_channels == 1) {
@@ -123,25 +180,4 @@ void Wav::gain(float factor) {
 	}
 }
 
-/*void Wav::writeFile(const std::string &new_file_name){
-		std::ofstream file(new_file_name,std::ios::binary | std::ios::out);
-
-		if(file.is_open())
-		{
-			file.write((char*)&wavHeader, sizeof(wavHeader));
-			for(auto chunk : chunks)
-			{
-				chunk->write(file);
-			}
-			file.close();
-		}
-		else
-		{
-			throw std::runtime_error("Could not write to file");
-		}
-	}*/
-/*for (int i = 0; i < 256; i++) {
-	std::cout << buffer[i] << " ";
-}
-std::cout << "\n";*/
   

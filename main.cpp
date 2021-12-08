@@ -3,6 +3,11 @@
 #include <string>
 #include "wav.h"
 
+/**
+ * @brief 
+ * 
+ * @return int 
+ */
 int startMenu() {
 	int s;
 	std::cout << "Input 1 to edit wav file or 0 to exit program" << std::endl;
@@ -10,6 +15,11 @@ int startMenu() {
 	return s;
 }
 
+/**
+ * @brief 
+ * 
+ * @return int 
+ */
 int chooseProcessor() {
 	int p;
 	std::cout << "SELECT A PROCESSOR" << std::endl;
@@ -24,6 +34,11 @@ int chooseProcessor() {
 	return p;
 }
 
+/**
+ * @brief 
+ * 
+ * @return int 
+ */
 int main() {
 	int start;
 	do {
