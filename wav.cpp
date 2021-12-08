@@ -24,6 +24,12 @@ bool Wav::readFile (const std::string &filename){
 			/*for (int i = 0; i < 256; i++) {
 				std::cout << (int)buffer8[i] << " ";
 			}*/
+		}
+		if(std::string {wavHeader.riff_header, 4} != "RIFF"){
+			return false;
+		}
+		if(std::string {wavHeader.wav_header, 4} != "WAVE"){
+			return false;
 		} else {
 			buffer16 = new short[wavHeader.data_bytes];
 			file.read((char*)buffer16,wavHeader.data_bytes);
@@ -52,7 +58,7 @@ void Wav::printMetadata() {
 		default:
 			std::cout << "Number of channels: " << wavHeader.num_channels << std::endl;
 	}
-	std::cout << "data bytes: " << wavHeader.data_bytes << std::endl;
+//	std::cout << "data bytes: " << wavHeader.data_bytes << std::endl;
 	
 }
 
