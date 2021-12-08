@@ -46,10 +46,9 @@ int main() {
 		if (start == 0) {
 			return 0;
 		}
-		std::string inputFilename = "audio/yes-8-bit-mono.wav";
-		//std::string inputFilename;
+		std::string inputFilename;
 		std::cout << "Input Filename\n";
-		//std::cin >> inputFilename;
+		std::cin >> inputFilename;
 		Wav wav;
 		if (!wav.readFile(inputFilename)) {
 			continue;
