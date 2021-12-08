@@ -31,7 +31,13 @@ bool Wav::readFile (const std::string &filename){
 			/*for (int i = 0; i < 256; i++) {
 				std::cout << (int)buffer8[i] << " ";
 			}*/
-		} else {
+		if(std::string {wavHeader.riff_header, 4} != "RIFF"){
+			throw std::runtime_error("Not RIFF Format");
+		}
+		if(std::string {wavHeader.wave_header, 4} != "WAVE"){
+			throw std::runtime_error("Not WAVE Format");
+		} 
+		else {
 			buffer16 = new short[wavHeader.data_bytes];
 			file.read((char*)buffer16,wavHeader.data_bytes);
 			/*for (int i = 0; i < 256; i++) {
@@ -179,5 +185,3 @@ void Wav::gain(float factor) {
 		p->processBuffer16(getBuffer16(), getBuffer16Size());
 	}
 }
-
-  
