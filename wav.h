@@ -1,21 +1,24 @@
-//example, needs revision -andy nov 10
-#ifndef WAV_H
-#define WAV_H
-
-
-#include "WaveHeader.h"
+#include <iostream>
+#include <string>
+#include "wavHeader.h"
+//#include "processor.h"
 
 class Wav {
-
-    unsigned char* buffer = NULL;
-    wav_header waveHeader;
+		std::string name;
+    wav_header wavHeader;
+    unsigned char* buffer8 = NULL;
+		short* buffer16 = NULL;
 public:
     virtual ~Wav();
-	void readFile(const std::string &fileName);
-    void writeFile(const std::string &outFileName);
-    unsigned char *getBuffer();
-    int getBufferSize() const;
+		bool readFile(const std::string &fileName);
+		void printMetadata();
+    void copyFile(const std::string &outFileName);
+		void writeFile();
+    unsigned char *getBuffer8();
+    short *getBuffer16();
+    int getBuffer8Size() const;
+    int getBuffer16Size() const;
+		void normal();
+		void echo(float factor, float seconds);
+		void gain(float factor);
 };
-
-
-#endif
