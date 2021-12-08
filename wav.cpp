@@ -69,7 +69,7 @@ void Wav::printMetadata() {
 		default:
 			std::cout << "Number of channels: " << wavHeader.num_channels << std::endl;
 	}
-	std::cout << "data bytes: " << wavHeader.data_bytes << std::endl;
+	//std::cout << "data bytes: " << wavHeader.data_bytes << std::endl;
 	
 }
 
