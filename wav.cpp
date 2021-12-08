@@ -30,7 +30,8 @@ bool Wav::readFile (const std::string &filename){
 		}
 		if(std::string {wavHeader.wav_header, 4} != "WAVE"){
 			return false;
-		} else {
+		} 
+		else {
 			buffer16 = new short[wavHeader.data_bytes];
 			file.read((char*)buffer16,wavHeader.data_bytes);
 			/*for (int i = 0; i < 256; i++) {
