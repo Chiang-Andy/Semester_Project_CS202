@@ -28,7 +28,7 @@ bool Wav::readFile (const std::string &filename){
 		if(std::string {wavHeader.riff_header, 4} != "RIFF"){
 			return false;
 		}
-		if(std::string {wavHeader.wav_header, 4} != "WAVE"){
+		if(std::string {wavHeader.wave_header, 4} != "WAVE"){
 			return false;
 		} 
 		else {
