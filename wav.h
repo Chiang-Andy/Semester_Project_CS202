@@ -16,79 +16,79 @@ public:
     virtual ~Wav();
 
     /**
-     * @brief 
+     * @brief Reads a file into the class
      * 
-     * @param fileName 
-     * @return true 
-     * @return false 
+     * @param fileName Determines the wav file to be used by the program
+     * @return true True if the file was read successfully
+     * @return false False if the file was unable to be read or was formatted incorrectly
      */
 		bool readFile(const std::string &fileName);
 
     /**
-     * @brief 
+     * @brief Prints the file's file name, sample rate, bits per sample, and audio type
      * 
      */
 		void printMetadata();
 
     /**
-     * @brief 
+     * @brief Duplicates the audio file
      * 
-     * @param outFileName 
+     * @param outFileName Determines the name of the copied file
      */
     void copyFile(const std::string &outFileName);
 
     /**
-     * @brief 
+     * @brief Updates the given file
      * 
      */
 		void writeFile();
 
     /**
-     * @brief Get the Buffer8 object
+     * @brief Returns the array of 8-bit samples
      * 
      * @return unsigned char* 
      */
     unsigned char *getBuffer8();
 
     /**
-     * @brief Get the Buffer16 object
+     * @brief Returns the array of 16-bit samples
      * 
      * @return short* 
      */
     short *getBuffer16();
 
     /**
-     * @brief Get the Buffer8 Size object
+     * @brief Get the number of samples in the file
      * 
      * @return int 
      */
     int getBuffer8Size() const;
 
     /**
-     * @brief Get the Buffer16 Size object
+     * @brief Get the number of samples in the file
      * 
      * @return int 
      */
     int getBuffer16Size() const;
 
     /**
-     * @brief 
+     * @brief Applies normalization processor
      * 
      */
 		void normal();
 
     /**
-     * @brief 
+     * @brief Applies echo processor
      * 
-     * @param factor 
-     * @param seconds 
+     * @param factor Determines the echo's amplitude
+     * @param seconds Determines in seconds the time between echoes
      */
 		void echo(float factor, float seconds);
 
     /**
-     * @brief 
+     * @brief Applies gain adjustment processor
      * 
-     * @param factor 
+     * @param factor Determines the amount that the gain is multiplied by
      */
 		void gain(float factor);
 };
