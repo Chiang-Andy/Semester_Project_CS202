@@ -1,5 +1,13 @@
 #include "echo.h"
 
+/**
+ * @brief Construct a new Echo:: Echo object
+ * 
+ * @param f 
+ * @param s 
+ * @param h 
+ * @param c 
+ */
 Echo::Echo(float f, float s, int h, int c) {
 	factor = f;
 	seconds = s;
@@ -7,6 +15,12 @@ Echo::Echo(float f, float s, int h, int c) {
 	channels = c;
 }
 
+/**
+ * @brief 
+ * 
+ * @param buffer8 
+ * @param bufferSize 
+ */
 void Echo::processBuffer8(unsigned char* buffer8, int bufferSize) {
 	int d = seconds * rate * channels;
 	for (int i = d; i < bufferSize; i++) {
@@ -14,6 +28,12 @@ void Echo::processBuffer8(unsigned char* buffer8, int bufferSize) {
 	}
 }
 
+/**
+ * @brief 
+ * 
+ * @param buffer16 
+ * @param bufferSize 
+ */
 void Echo::processBuffer16(short* buffer16, int bufferSize) {
 	int d = seconds * rate * channels;
 	for (int i = d; i < bufferSize; i++) {
@@ -21,6 +41,10 @@ void Echo::processBuffer16(short* buffer16, int bufferSize) {
 	}
 }
 
+/**
+ * @brief Destroy the Echo:: Echo object
+ * 
+ */
 Echo::~Echo() {
 
 }
